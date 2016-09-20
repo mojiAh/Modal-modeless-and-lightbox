@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>ANG4</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+    <script src="myApp.js"></script>
+</head>
+<body ng-controller="bodyController">
+<div class="container">
+    <div class="col-sm-2">
+        <ul class="list-group">
+            <li class="list-group-item" 
+                ng-repeat="country in countries" 
+                ng-click="showData($index)" 
+                data-toggle="modal" 
+                data-target="#myModal">{{country.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{countries[countryIndex].name}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{countries[countryIndex].name}} has {{countries[countryIndex].population}} inhabitants.</p>
+                <p>That is {{countries[countryIndex].percentage}} of the world population.</p>
+                <p> {{countries[countryIndex].name}} is in the position {{countries[countryIndex].position}} in the world.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
